@@ -10,31 +10,36 @@
 exports.largestPalindromeProduct = function(multiplicands, digits){
 	var factor_0 = 0;	
 	var factor_1 = 0;
-	var palindromeNumber = 0;
+	var palindromeNumber = 0; // largest palindrome found
 	// do your work here
 
 
 	// 
-	for (factor_0 = 100; factor_0 < 1000; factor_0++) {
-		for (factor_1 = 100; factor_1 < 1000; factor_1++) {
-			var product = factor_0 * factor_1;
-			var numberString = product.toString();
-			if(numberString === numberString.split('').reverse().join('')){
-				console.log(numberString + ' is a palindrome');
-			};
-
-			// Need to sort numberString
+	for (x = 100; x < 1000; x++) {
+		for (y = x; y < 1000; y++) { // y = x, x won't duplicate
+			var product = x * y;
+			var numberToString = product.toString();
+			if(numberToString === numberToString.split('').reverse().join('')){
+				console.log(numberToString + ' is a palindrome');
+				
+				// Need to find the largest palindrome number
+				if(parseInt(numberToString) > palindromeNumber) {
+					palindromeNumber = parseInt(numberToString);
+					factor_0 = x;
+					factor_1 = y;
+				}
+				
+			}
 
 
 			// return last item in array
+			// var index = numberToString.lastIndexOf()
+			// //var largestPalindrome = numberToString[numberToString.length-1];
 
-
-			return largestPalindrome;
+			// return index;
 		};
 	};
-
   
-
 
 	return {
 		factor_0 : factor_0,
